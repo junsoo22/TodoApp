@@ -1,12 +1,12 @@
-
-import './App.css'
+import "./App.css";
+import TodoApp from "./components/TodoApp";
 
 function App() {
-
-
   return (
-<div>안녕하세요!</div>
-  )
+    <div>
+      <TodoApp></TodoApp>
+    </div>
+  );
 }
 
-export default App
+export default App;
