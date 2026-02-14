@@ -1,5 +1,7 @@
-TodoApp 
+TodoApp
+
 # Vite로 React 시작하기
+
 ### 설치
 
 ```
@@ -9,11 +11,13 @@ npm install
 ```
 
 ### 실행
+
 ```
 npm run dev
 ```
 
 # TodoApp
+
 ![alt text](image.png)
 
 1. 입력창 바로 밑에 색상들이 나열되어 있으며, 해당 색상을 클릭하면 input의 배경색이 변합니다.
@@ -22,3 +26,6 @@ npm run dev
 
 hook(useEffect 등)을 사용하여 구현하시오.
 
+## 1. 처음 화면 UI만 구성
+
+![alt text](image-1.png)

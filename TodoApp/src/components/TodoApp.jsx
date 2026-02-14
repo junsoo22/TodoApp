@@ -1,11 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function TodoApp() {
+  const [input, setInput] = useState(""); //입력창
+  const [todoList, setTodoList] = useState([]); //todo items
+  const [bgColor, setBgColor] = useState("white");
+
   const colors = ["white", "red", "yellow", "pink"];
 
+  const handleInput = (e) => {
+    setInput(e.target.value);
+  };
+
+  const handleBgColor = (c) => {
+    setBgColor(c);
+  };
   return (
     <div style={{ backgroundColor: "blue" }}>
       <h1 style={{ textAlign: "center" }}>Todo App</h1>
+
+      {/* input */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: "30px",
+        }}
+      >
+        <input
+          type="text"
+          style={{ width: "600px", height: "30px", backgroundColor: bgColor }}
+          onChange={handleInput}
+        />
+
+        <button>입력</button>
+      </div>
 
       {/* ColorBar */}
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -19,6 +47,9 @@ export default function TodoApp() {
               borderRadius: "100px",
               margin: "10px",
               cursor: "pointer",
+            }}
+            onClick={() => {
+              handleBgColor(color);
             }}
           />
         ))}
@@ -75,6 +106,7 @@ export default function TodoApp() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            textAlign: "center",
           }}
         >
           밥먹기
