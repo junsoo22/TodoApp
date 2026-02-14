@@ -24,7 +24,7 @@ export default function TodoApp() {
   };
 
   return (
-    <div style={{ backgroundColor: "blue" }}>
+    <div style={{ backgroundColor: "blue", minHeight: "45vh" }}>
       <h1 style={{ textAlign: "center" }}>Todo App</h1>
 
       {/* input */}
