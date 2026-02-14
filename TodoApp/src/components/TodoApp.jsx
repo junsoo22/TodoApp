@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TodoInput from "./TodoInput";
 import ColorBar from "./ColorBar";
 import TodoList from "./TodoList";
 
 export default function TodoApp() {
   const [input, setInput] = useState(""); //입력창
-  const [todoItems, setTodoItems] = useState([]); //todo items
+
+  //변경(새로고침) 후 : localstorage에서 불러오기
+  const [todoItems, setTodoItems] = useState(() => {
+    const saved = localStorage.getItem("todoList");
+    return saved ? JSON.parse(saved) : [];
+  }); //todo items
   const [bgColor, setBgColor] = useState("white");
   const [searchInput, setSearchInput] = useState("");
 
@@ -32,6 +37,11 @@ export default function TodoApp() {
       { id: Date.now(), text: input, color: bgColor },
     ]);
   };
+
+  //todo item 추가될때마다 local storage에 item 넣어주기
+  useEffect(() => {
+    localStorage.setItem("todoList", JSON.stringify(todoItems));
+  }, [todoItems]);
 
   return (
     <div style={{ backgroundColor: "blue", minHeight: "45vh" }}>
