@@ -68,7 +68,10 @@ export default function TodoApp() {
       </div>
 
       {/* TodoList */}
-      <TodoList todoItems={searchInput ? filterdItems : todoItems}></TodoList>
+      <TodoList
+        todoItems={searchInput ? filterdItems : todoItems}
+        setTodoItems={setTodoItems}
+      ></TodoList>
     </div>
   );
 }

@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function TodoItem({ item }) {
+export default function TodoItem({ item, id, todoItems, setTodoItems }) {
+  //삭제 버튼 누를 시, 상태 변화
+  const removeItems = () => {
+    setTodoItems(todoItems.filter((item) => item.id !== id));
+  };
+
   return (
     <div>
       <section
@@ -19,7 +24,7 @@ export default function TodoItem({ item }) {
         {item.text}
         <div>
           <button style={{ margin: "10px" }}>수정</button>
-          <button>삭제</button>
+          <button onClick={removeItems}>삭제</button>
         </div>
       </section>
     </div>
